@@ -7,7 +7,7 @@ LABEL description="Build stage for ${TARGET_TRIPLET} toolchain"
 RUN sed -i 's|^Server =.*$|Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch|g' /etc/pacman.d/mirrorlist
 
 RUN pacman -Syu --noconfirm \
-    && pacman -S --noconfirm ca-certificates git make gcc gperf bison flex texinfo help2man ncurses wget python bash tar xz curl
+    && pacman -S --noconfirm ca-certificates git make gcc gperf bison flex texinfo autoreconf help2man ncurses wget python bash tar xz curl
 
 RUN git clone https://github.com/crosstool-ng/crosstool-ng.git --depth 1 /ct-ng
 
