@@ -33,7 +33,7 @@ ARG TARGET_TRIPLET
 LABEL maintainer="metabeyond@outlook.com"
 LABEL description="Arch Linux image with pre-built ${TARGET_TRIPLET} toolchain"
 
-COPY --from=builder /opt/bin/ /opt/bin/
+COPY --from=builder /opt/ /opt/
 COPY --from=builder /root/x-tools/${TARGET_TRIPLET}/ /opt/${TARGET_TRIPLET}/
 
 ENV PATH="/opt/bin:/opt/${TARGET_TRIPLET}/bin:${PATH}"
