@@ -35,7 +35,7 @@ RUN pacman -Syu --noconfirm && \
     pacman -S --noconfirm ca-certificates which bash tar xz curl nano && \
     mkdir -p /opt/${TARGET_TRIPLET}
 
-COPY --from=builder /ct-ng/x-tools/${TARGET_TRIPLET}/ /opt/${TARGET_TRIPLET}/
+COPY --from=builder /root/x-tools/${TARGET_TRIPLET}/ /opt/${TARGET_TRIPLET}/
 
 ENV PATH="/opt/${TARGET_TRIPLET}/bin:${PATH}"
 
