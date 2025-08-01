@@ -15,7 +15,7 @@ RUN sed -i 's|^Server =.*$|Server = https://mirrors.tuna.tsinghua.edu.cn/archlin
     wget https://github.com/ninja-build/ninja/releases/download/v1.13.1/ninja-linux.zip && \
     wget https://github.com/Kitware/CMake/releases/download/v4.1.0-rc4/cmake-4.1.0-rc4-linux-x86_64.tar.gz -O cmake.tgz && \
     unzip ninja-linux.zip -d /opt/bin && \
-    tar -xzf cmake.tgz -C /opt/bin --strip-components=1
+    tar -xzf cmake.tgz -C /opt --strip-components=1
 
 WORKDIR /ct-ng
 
@@ -27,7 +27,7 @@ RUN echo -e "CT_EXPERIMENTAL=y\nCT_ALLOW_BUILD_AS_ROOT=y\nCT_ALLOW_BUILD_AS_ROOT
     ./bootstrap && ./configure --prefix=/opt && make && make install && \
     /opt/bin/ct-ng build
 
-FROM scratch
+FROM archlinux:latest
 ARG TARGET_TRIPLET
 
 LABEL maintainer="metabeyond@outlook.com"
