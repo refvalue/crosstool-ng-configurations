@@ -8,7 +8,7 @@ RUN sed -i 's|^Server =.*$|Server = https://mirrors.tuna.tsinghua.edu.cn/archlin
 
 RUN pacman -Syu --noconfirm \
     && pacman -S --noconfirm ca-certificates autoconf automake libtool pkgconf gawk bison flex texinfo \
-    gcc make patch git wget ncurses zlib unzip gperf python bash sed grep bash tar xz curl wget
+    gcc make patch git wget ncurses zlib unzip gperf python help2man bash sed grep bash tar xz curl wget
 
 RUN git clone https://github.com/crosstool-ng/crosstool-ng.git --depth 1 /ct-ng
 
