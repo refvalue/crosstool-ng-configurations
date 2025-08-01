@@ -1,3 +1,4 @@
+ARG TARGET_TRIPLET=""
 FROM archlinux:latest AS builder
 
 LABEL maintainer="metabeyond@outlook.com"
