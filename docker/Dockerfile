@@ -11,7 +11,7 @@ ENV https_proxy=${PROXY_URL}
 RUN sed -i 's|^Server =.*$|Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch|g' /etc/pacman.d/mirrorlist && \
     pacman -Syu --noconfirm && \
     pacman -S --noconfirm ca-certificates autoconf automake libtool pkgconf gawk bison flex texinfo \
-    gcc make patch git wget ncurses zlib unzip gperf python help2man which bash sed grep bash tar xz curl wget
+    gcc make patch git wget ncurses zlib unzip lzip gperf python help2man which bash sed grep bash tar xz curl wget
 
 WORKDIR /ct-ng
 
