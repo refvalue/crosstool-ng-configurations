@@ -1,5 +1,5 @@
-ARG TARGET_TRIPLET=""
 FROM archlinux:latest AS builder
+ARG TARGET_TRIPLET
 
 LABEL maintainer="metabeyond@outlook.com"
 LABEL description="Build stage for ${TARGET_TRIPLET} toolchain"
@@ -17,6 +17,7 @@ COPY ${TARGET_TRIPLET}.config /ct-ng/.config
 RUN /opt/bin/ct-ng build
 
 FROM archlinux:latest
+ARG TARGET_TRIPLET
 
 LABEL maintainer="metabeyond@outlook.com"
 LABEL description="Arch Linux image with pre-built ${TARGET_TRIPLET} toolchain"
