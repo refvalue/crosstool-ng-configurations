@@ -13,13 +13,14 @@ RUN sed -i 's|^Server =.*$|Server = https://mirrors.tuna.tsinghua.edu.cn/archlin
     pacman -S --noconfirm ca-certificates autoconf automake libtool pkgconf gawk bison flex texinfo \
     gcc make patch git wget ncurses zlib unzip lzip gperf python help2man which bash sed grep bash tar xz curl wget && \
     wget https://github.com/ninja-build/ninja/releases/download/v1.13.1/ninja-linux.zip && \
-    wget https://github.com/Kitware/CMake/releases/download/v4.1.0-rc4/cmake-4.1.0-rc4-linux-x86_64.tar.gz -O cmake.tgz && \
+    wget https://github.com/Kitware/CMake/releases/download/v4.1.2/cmake-4.1.2-linux-x86_64.tar.gz -O cmake.tgz && \
     unzip ninja-linux.zip -d /opt/bin && \
     tar -xzf cmake.tgz -C /opt --strip-components=1
 
 WORKDIR /ct-ng
 
-RUN git clone https://github.com/crosstool-ng/crosstool-ng.git --depth 1 /ct-ng
+RUN git clone https://github.com/crosstool-ng/crosstool-ng.git --depth 1 /ct-ng && \
+    git checkout crosstool-ng-1.28.0
 
 COPY ${TARGET_TRIPLET}.config /ct-ng/.config
 
